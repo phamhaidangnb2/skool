@@ -1,9 +1,11 @@
+
 import React, { useRef } from 'react';
 import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
-import { TESTIMONIALS } from '../constants';
+import { useContent } from '../context/ContentContext';
 import { TestimonialItem } from '../types';
 
 const Testimonials: React.FC = () => {
+  const { testimonials } = useContent();
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: 'left' | 'right') => {
@@ -49,7 +51,7 @@ const Testimonials: React.FC = () => {
           className="flex overflow-x-auto space-x-6 pb-10 snap-x snap-mandatory hide-scrollbar"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
-          {TESTIMONIALS.map((item: TestimonialItem) => (
+          {testimonials.map((item: TestimonialItem) => (
             <div 
               key={item.id} 
               className="flex-shrink-0 w-full md:w-[450px] snap-center bg-white p-8 rounded-2xl shadow-sm border-t-4 border-electric-orange flex flex-col"

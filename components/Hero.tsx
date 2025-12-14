@@ -1,14 +1,18 @@
+
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { useContent } from '../context/ContentContext';
 
 const Hero: React.FC = () => {
+  const { heroImage } = useContent();
+
   return (
     <div id="home" className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div 
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat transition-all duration-1000"
         style={{
-          backgroundImage: 'url("https://i.postimg.cc/4drdchvR/Google-AI-Studio-2025-12-14T01-11-18-366Z.png")', 
+          backgroundImage: `url("${heroImage}")`, 
         }}
       ></div>
       

@@ -1,9 +1,12 @@
+
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
-import { SERVICES } from '../constants';
+import { useContent } from '../context/ContentContext';
 import { ServiceItem } from '../types';
 
 const Services: React.FC = () => {
+  const { services } = useContent();
+
   return (
     <section id="services" className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,7 +23,7 @@ const Services: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {SERVICES.map((service: ServiceItem) => (
+          {services.map((service: ServiceItem) => (
             <div 
               key={service.id} 
               className="group bg-white rounded-2xl border-2 border-transparent hover:border-midnight shadow-lg hover:shadow-xl transition-all duration-300 relative flex flex-col overflow-hidden"
